@@ -1,11 +1,11 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
 
-//ʱ�临�Ӷ�
-//����:�ڼ������ѧ��,�㷨��ʱ�临�Ӷ���һ������,�����������˸��㷨������ʱ��.
-//     һ���㷨�����ѵ�ʱ������������ִ�д�����������,�㷨�еĻ���������ִ�д���,Ϊ�㷨��ʱ�临�Ӷ�
+//时间复杂度
+//定义:在计算机科学中,算法的时间复杂度是一个函数,它定量描述了该算法的运行时间.
+//     一个算法所花费的时间与其中语句的执行次数成正比例,算法中的基本操作的执行次数,为算法的时间复杂度
 
-//��O�Ľ�����ʾ��
+//大O的渐进表示法
 void Func1(int N)
 {
 	int count = 0;
@@ -30,22 +30,22 @@ void Func1(int N)
 	printf("%d\n", count);
 }
 
-//Func1ִ�еĻ�����������:  F(N) = N^2 + 2*N + 10
-//ʵ�������Ǽ���ʱ�临�Ӷ�ʱ,������ʵ����һ��Ҫ���㾫ȷ��ִ�д���,��ֻ��Ҫ���ִ�д���,��ô��������ʹ�ô�O�Ľ�����ʾ��
+//Func1执行的基本操作次数:  F(N) = N^2 + 2*N + 10
+//实际中我们计算时间复杂度时,我们其实并不一定要计算精确的执行次数,而只需要大概执行次数,那么这里我们使用大O的渐进表示法
 
-//��O����:��������������������Ϊ����ѧ����
+//大O符号:是用于描述函数渐进行为的数学符号
 
-//�Ƶ���O�׷���:
-//1.�ó���1ȡ������ʱ���е����мӷ�����
-//2.���޸ĺ�����д���������,ֻ������߽���
-//3.�����߽�������Ҳ���1,��ȥ���������Ŀ��˵ĳ���,�õ��Ľ�����Ǵ�O��
+//推导大O阶方法:
+//1.用常数1取代运行时间中的所有加法常数
+//2.在修改后的运行次数函数中,只保留最高阶项
+//3.如果最高阶项存在且不是1,则去除与这个项目相乘的常数,得到的结果就是大O阶
 
-//��ʱFunc1��ʱ�临�Ӷ�Ϊ:O(N^2)
+//此时Func1的时间复杂度为:O(N^2)
 
-//������Щ�㷨��ʱ�临�Ӷȴ������,ƽ����������
-//��ʵ����һ�������ע�����㷨����������,������������������ʱ�临�Ӷ�ΪO(N)
+//另外有些算法的时间复杂度存在最好,平均和最坏的情况
+//在实际中一般情况关注的是算法的最坏运行情况,所以数组中搜索数据时间复杂度为O(N)
 
-//����Func2��ʱ�临�Ӷ�
+//计算Func2的时间复杂度
 void Func2(int N)
 {
 	int count = 0;
@@ -61,10 +61,10 @@ void Func2(int N)
 	}
 	printf("%d\n", count);
 }
-//ʱ�临�Ӷ�Ϊ:O(N)
+//时间复杂度为:O(N)
 
 
-//����Func3��ʱ�临�Ӷ�
+//计算Func3的时间复杂度
 void Func3(int N, int M)
 {
 	int count = 0;
@@ -79,10 +79,10 @@ void Func3(int N, int M)
 	}
 	printf("%d\n", count);
 }
-//ʱ�临�Ӷ�Ϊ:O(M+N)
+//时间复杂度为:O(M+N)
 
 
-//����Func4��ʱ�临�Ӷ�
+//计算Func4的时间复杂度
 void Func4(int N)
 {
 	int count = 0;
@@ -94,10 +94,10 @@ void Func4(int N)
 
 	printf("%d\n", count);
 }
-//ʱ�临�Ӷ�Ϊ:O(1)
+//时间复杂度为:O(1)
 
 
-//����BubbleSort��ʱ�临�Ӷ�
+//计算BubbleSort的时间复杂度
 void BubbleSort(int* a, int n)
 {
 	assert(a);
@@ -117,10 +117,10 @@ void BubbleSort(int* a, int n)
 			break;
 	}
 }
-//ʱ�临�Ӷ�ΪO(N^2)
+//时间复杂度为O(N^2)
 
 
-//����BinarySearch��ʱ�临�Ӷ�
+//计算BinarySearch的时间复杂度
 int BinarySearch(int* a, int n, int x)
 {
 	assert(a);
@@ -142,27 +142,27 @@ int BinarySearch(int* a, int n, int x)
 
 	return -1;
 }
-//ʱ�临��ΪO(logN)
+//时间复杂为O(logN)
 
 
-//����׳˽׳˵ݹ�Factorial��ʱ�临�Ӷ�
+//计算阶乘阶乘递归Factorial的时间复杂度
 long long Factorial(size_t N)
 {
 	return N < 2 ? N : Factorial(N - 1)*N;
 }
-//ʱ�临�Ӷ�ΪO(N)
-//�ݹ��㷨��μ���:�ݹ����*ÿ�εݹ麯���Ĵ���
+//时间复杂度为O(N)
+//递归算法如何计算:递归次数*每次递归函数的次数
 
 
-//����쳲������ݹ�Fibonacci��ʱ�临�Ӷ�
+//计算斐波那契递归Fibonacci的时间复杂度
 long long Fibonacci(size_t N)
 {
 	return N < 2 ? N : Fibonacci(N - 1) + Fibonacci(N - 2);
 }
-//�ܵĵ��ô���1+2+2^2+2^3+2^4 + ... + 2^(n-1) = 2^n - 1
-//ʱ�临�Ӷ�Ϊ2^n
+//总的调用次数1+2+2^2+2^3+2^4 + ... + 2^(n-1) = 2^n - 1
+//时间复杂度为2^n
 
-//�������쳲���������
+//求出整个斐波那契数列
 long long* Fibonacci(size_t N)
 {
 	long long* fibArray = malloc(sizeof(long long)*N);
@@ -173,7 +173,7 @@ long long* Fibonacci(size_t N)
 	}
 
 	fibArray[2] = 1;
-	//�ռ任ʱ��
+	//空间换时间
 	for (int i = 2; i <= N; i++)
 	{
 		fibArray[i] = fibArray[i - 1] + fibArray[i - 2];
@@ -182,12 +182,12 @@ long long* Fibonacci(size_t N)
 }
 
 
-//�ռ临�Ӷ�
-//�ռ临�Ӷ��Ƕ�һ���㷨�����й�������ʱռ�ô洢�ռ��С�ı���.�ռ临�ӶȲ��ǳ���ռ���˶���bytes�Ŀռ�,��Ϊ���Ҳû��̫������,���Կռ临�Ӷ�����Ǳ����ĸ���.
-//�ռ临�Ӷȼ�����������ʱ�临�Ӷ�����,Ҳʹ�ô�O������ʾ��.
+//空间复杂度
+//空间复杂度是对一个算法在运行过程中临时占用存储空间大小的变量.空间复杂度不是程序占用了多少bytes的空间,因为这个也没有太大意义,所以空间复杂度算的是变量的个数.
+//空间复杂度计算规则基本跟时间复杂度类似,也使用大O渐进表示法.
 
 
-//����BubbleSort�Ŀռ临�Ӷ�
+//计算BubbleSort的空间复杂度
 void BubbleSort(int* a, int n)
 {
 	assert(a);
@@ -207,11 +207,11 @@ void BubbleSort(int* a, int n)
 			break;
 	}
 }
-//������ı�����:a,n,end,exchange,i�������
-//�������Ŀռ临�Ӷ�ΪO(1),Ϊ����������
+//它定义的变量有:a,n,end,exchange,i五个变量
+//所以他的空间复杂度为O(1),为常数个变量
 
 
-//����BinarySearch�Ŀռ临�Ӷ�
+//计算BinarySearch的空间复杂度
 int BinarySearch(int* a, int n, int x)
 {
 	assert(a);
@@ -233,10 +233,10 @@ int BinarySearch(int* a, int n, int x)
 
 	return -1;
 }
-//�ռ临�Ӷ�ΪO(N)
+//空间复杂度为O(N)
 
 
-//����ռ临�Ӷ�
+//计算空间复杂度
 long long* Fibonacci(size_t N)
 {
 	long long* fibArray = malloc(sizeof(long long)*N);
@@ -254,4 +254,6 @@ long long* Fibonacci(size_t N)
 	}
 	return fibArray;
 }
-//�ռ临�Ӷ�ΪO(N)
+//空间复杂度为O(N)
+
+//剑指OFFER
